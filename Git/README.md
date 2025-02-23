@@ -5,8 +5,8 @@
 - git repository (commited changes),
 - external repository (pushed changes),
 
-`git config --global core.pager "less -X -F"` -> pager (less),
-`git config --global core.pager 'vim -'` -> vim,
+`git config --global core.pager "less -X -F"` -> uses pager (less),
+`git config --global core.pager 'vim -'` -> logs in vim,
 
 git aliases
 -> ~/.gitconfig
