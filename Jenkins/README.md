@@ -10,6 +10,8 @@
 5. stop docker containers: `docker compose down`,
 6. close Docker Desktop App (or Rancher Desktop),
 
+!!!!! try docker compose down and then turn rancher destkop off !!!
+
 # Prerequisites & Installation
 
 - WARN! License needed! download Docker Desktop from: https://www.docker.com/products/docker-desktop/ (comes with docker cli);

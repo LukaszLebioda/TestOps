@@ -5,6 +5,9 @@
 - git repository (commited changes),
 - external repository (pushed changes),
 
+`git config --global core.pager "less -X -F"` -> pager (less),
+`git config --global core.pager 'vim -'` -> vim,
+
 git aliases
 -> ~/.gitconfig
 create new group [alias] and create aliases for git (git ch = git checkout etc.)
@@ -23,13 +26,15 @@ create new group [alias] and create aliases for git (git ch = git checkout etc.)
 `git add .` -> adds all files,
 `git add folder/file.txt folder2/file2.txt` -> adds specific file(s),
 
-`git commit` -> adds files from staging area to git repository,
+`git commit` -> adds files from staging area to git repo (text editor will open),
 `git commit -m "message"` -> adds file with a git message,
+`git commit --amend` -> updates existing commit,
 
 ### git log, git diff, git show
 
 `git log` -> displays information about commits (q to quit),
 `git log --oneline` -> displays high-level information,
+`git log -n 3` -> limits the logged commits to 3,
 - when in vim log output, type `/` to search for any string,
 
 `git diff` -> shows diff between workdir and git_repo (with staging),
