@@ -1,0 +1,40 @@
+|	=> pipe operator; separates commands, so that the output of one command becomes an input for another (e.g. `grep something test.txt | wc -w`)
+
+> => redirects output (e.g. `echo “Hello World” > test.txt` will store the string into the file);	
+
+cd / => go to root directory (top level);
+cd ~ => go to user’s home directory	(tilda = /Users/llebioda);
+cd .. => moves back;
+cd /Desktop => absolute path (starts with / )	
+cd Desktop	=> relative path to my current directory (no / )
+
+clear (ctrl + l) => clears terminal 
+clear -x => clears terminal and preserves scrollback history;
+ls => lists files (ls -a, ls -l, ls -al, ls -1);
+man cd, man grep => displays manual of a specific command;
+mkdir dogs cats => creates directory (or directories);
+mkdir cats/wildcats => creates directory within directory;
+pwd	=> displays curent working directory;
+touch lala.pdf => creates a file (extension is optional);
+where node (which noe) => tells where certain app is installed;
+whoami	=> tells who’s the currently logged-in user;
+
+echo	to print output
+cal	to display calendar
+date	to display date
+mv	to move files from a directory to another
+rm	to remove files 
+rmdir	to remove folders (directories)
+exit	to exit terminal
+cp	to copy files
+cat 	to view (open) files
+less	to view (open) bigger files
+grep	to search through content of a file
+wc	to count content (-w: words, -m: characters)
+sort	to sort content
+
+	
+
+
+		
+

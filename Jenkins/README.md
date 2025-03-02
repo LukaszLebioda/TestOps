@@ -1,16 +1,11 @@
 # Basic flow
 
-- Jenkins is run in a docker container,
-- it's accesible at localhost (8080),
-
 1. open Docker Desktop App (or Rancher Desktop),
 2. go to directory with Jenkins project,
 3. run docker containers (including Jenkins): `docker compose up -d`,
 4. open browser: `http://localhost:8080/` to access Jenkins (username, password);
 5. stop docker containers: `docker compose down`,
 6. close Docker Desktop App (or Rancher Desktop),
-
-!!!!! try docker compose down and then turn rancher destkop off !!!
 
 # Prerequisites & Installation
 
@@ -42,3 +37,42 @@
 - Jenkins JOB is an automated process,
 - Jenkins FREESTYLE is a simple job configured only with Jenkins GUI, but the problem is that the configuration is stored within Jenkins only and not as a code than can be exported and keep-tracked, example: -> New item -> Select item: Freestyle project -> Configure -> Build steps -> Execute shell => echo "Hello world",
 - Jenkins PIPELINE is a complicated job defined as a series of stages (stages have steps) and the main advantage is that it is kept as a code, that can be exported and keep-tracked, example: -> New item -> Select item: Pipeline -> Pipeline -> Script,
+
+# Pipeline example (Laptop assembly)
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                cleanWs() // cleans up the workspace (can be a separate stage as well)
+                echo "Building a new laptop..." // prints out the step name
+                sh 'mkdir -p build' // creates a directory (only if exists, -p)
+                sh 'touch build/computer.txt' // creates a file within directory
+                sh 'echo "Motherboard" >> build/computer.txt' // prints output into the file
+                sh 'cat build/computer.txt' // reads the file
+                sh 'echo "Display" >> build/computer.txt' // appends output into the file
+                // sh 'sleep 600' -> simulates job freeze (in seconds)
+                // sh 'exit 2' -> simulates job failuer (any exit code 1-255)
+                sh '''
+                    cat build/computer.txt
+                    echo "Keyboard" >> build/computer.txt
+                    cat build/computer.txt
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing a new laptop..."
+                sh 'test -f build/computer.txt' // verifying if a file exists
+            }
+        }
+    }
+
+    post {
+        success { // runs on success only (other options: failure, always)
+            archiveArtifacts artifacts: 'build/**' // keeps any artifacts within folder
+        }
+    }
+}
