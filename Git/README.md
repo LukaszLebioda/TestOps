@@ -17,8 +17,12 @@ create new group [alias] and create aliases for git (git ch = git checkout etc.)
 
 `git init` -> to initialize git repository in current folder,
 `rm -rf .git/` -> to remove git repository from current folder,
-`git status` -> current state of git repository
+`git status` -> current state of git repository,
+`git status -u` -> shows all untracked files per folders,
 `git clone` -> to clone remote git repo (e.g. grom GitHub),
+
+`git help` -> to get help (`git help | less` -> in less pager),
+`git commit --help` -> to get help on particular command,
 
 ### git add, git commit
 
@@ -54,3 +58,9 @@ or `git diff commitId1 commitId2`
 `git rm junk.txt` -> deletes file and simultaneously stages it (git rm = rm + git add),
 `git mv junk.txt junk_renamed.txt` -> moves (renames) and simultaneously stages it (git mv = mv + git add),
 
+### git clean
+
+`git clean -d -n .` -> displays all files & folders to be un-tracked,
+`git clean -d -f .` -> removes all files & folders to be un-tracked,
+`git clean -X -d -n/-f .` -> affects ignored files & folders,
+- ofc we can just remove files manually with `rm` or `git rm`,
