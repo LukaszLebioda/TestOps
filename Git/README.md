@@ -58,9 +58,21 @@ or `git diff commitId1 commitId2`
 `git rm junk.txt` -> deletes file and simultaneously stages it (git rm = rm + git add),
 `git mv junk.txt junk_renamed.txt` -> moves (renames) and simultaneously stages it (git mv = mv + git add),
 
-### git clean
+### git clean, git checkout, git reset
 
+# removes untracked files (created, but not staged yet)
 `git clean -d -n .` -> displays all files & folders to be un-tracked,
-`git clean -d -f .` -> removes all files & folders to be un-tracked,
+`git clean -d -f .` -> removes all folders & files to be un-tracked,
 `git clean -X -d -n/-f .` -> affects also ignored files & folders,
 - ofc we can just remove files manually with `rm` or `git rm`,
+# restores tracked files (created & modified, but not staged yet)
+`git checkout -- anyFolder/anyFile.txt` -> restores unstaged change,
+`git checkout .` -> restores all unstaged changes,
+# restores staged files (brings them back to working directory)
+# to restore further -> git checkout (unmodify) or git clean (remove)
+`git reset -- anyFolder/anyFile.txt` -> restores staged change,
+`git reset .` -> restores all staged change,
+
+# git reset in more detail: 
+`git reset --soft ecda622` -> restores the local repository to a certain commit (point) in time (but keeps all the changes in the local repository from this commit onwards),
+`git reset --hard ecda622` -> restores the local repository to a certain commit (point) in time (without keeping the changes),
