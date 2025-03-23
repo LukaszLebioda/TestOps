@@ -1,0 +1,12 @@
+**/.DS_Store
+
+# ignores directory or file (if one exist)
+someName
+# ignores directory only, not a file (if one exist)
+somename/
+# ignores directory or file relatively to .gitignore
+/somename/
+# ignores extentions
+*.extension 
+# ingores patterns
+**/directory/somename/

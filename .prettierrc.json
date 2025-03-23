@@ -1,0 +1,12 @@
+{
+  "semi": true,
+  "singleQuote": false,
+  "useTabs": true,
+  "tabWidth": 2,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "bracketSameLine": true,
+  "prettier.trailingComma": "es5"
+}
