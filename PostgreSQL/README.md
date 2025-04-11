@@ -1,18 +1,29 @@
 --------------------------------------------------------
 -- PostgreSQL17 => start server (elephant icon)
--- terminal: psql (to enter REPL), \q (to quit)
+-- terminal => psql (to enter REPL), \q (to quit)
 -- \l (to list all databases), \d (to list all tables)
 -- CREATE DATABASE databasename
 -- \c databasename (to connect to database) (or use GUI)
 --------------------------------------------------------
 
-# prerequisites
+# Prerequisites
 
-- DBMS: Postgress.app (PostgreSQL 17): https://postgresapp.com/downloads.html,
+- Database Management System (DBMS): PostgreSQL 17,
+- CLI Client: terminal => psql (comes with DMBS),
 - GUI Client: PG Admin, DBeaver etc.,
-- CLI Client: terminal => psql (to use psql REPL),
 
-# GUI
+# Path
+
+- add to path to get access to CLI psql command: 
+- terminal => vi .zshrc => export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/17/bin
+- terminal => source .zshrc (or just restart terminal),
+
+# CLI: Connection to DB
+
+- elephant icon -> Open PostgreSQL -> Start server,
+- click on selected db to open terminal or write psql in terminal,
+ 
+<!-- # GUI
 
 - new connection (any name of the connection),
 - host: localhost,
@@ -23,12 +34,6 @@
 
 # CLI:
 
-## configgg
-
-- add to path: terminal => vi .zshrc => export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/17/bin
-- terminal => source .zshrc
-- now we have access to psql command;
-
 ## connect to database + commands:
 
 - psql => help => to see short list of hints;
@@ -38,4 +43,4 @@
 - or: \c databasename
 - psql => \l => list all databases
 - psql => \d => list all tables
-- psql => \d tablename => displays particular table
+- psql => \d tablename => displays particular table -->

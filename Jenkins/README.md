@@ -46,33 +46,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cleanWs() // cleans up the workspace (can be a separate stage as well)
-                echo "Building a new laptop..." // prints out the step name
-                sh 'mkdir -p build' // creates a directory (only if exists, -p)
-                sh 'touch build/computer.txt' // creates a file within directory
-                sh 'echo "Motherboard" >> build/computer.txt' // prints output into the file
-                sh 'cat build/computer.txt' // reads the file
-                sh 'echo "Display" >> build/computer.txt' // appends output into the file
-                // sh 'sleep 600' -> simulates job freeze (in seconds)
-                // sh 'exit 2' -> simulates job failuer (any exit code 1-255)
-                sh '''
-                    cat build/computer.txt
-                    echo "Keyboard" >> build/computer.txt
-                    cat build/computer.txt
-                '''
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing a new laptop..."
-                sh 'test -f build/computer.txt' // verifying if a file exists
+                cleanWs() // clean the workspace (clean artifacts, like .txt files etc.)
+                sh 'echo "Building a new laptop..."' // print info to the console
+                sh 'mkdir -p build' // create directory if it doesn't exist
+                sh 'touch build/computer.txt' // create .txt file (or update its timestamp)
+                sh 'echo "Mainboard" >> build/computer.txt' // print to .txt file
+                sh 'cat build/computer.txt' // read .txt file
+                sh 'echo "Display" >> build/computer.txt' // print to .txt file
+                sh 'cat build/computer.txt' // read .txt file
+                sh 'echo "Keyboard" >> build/computer.txt' // print to .txt file
+                sh 'cat build/computer.txt' // read .txt file
             }
         }
     }
-
-    post {
-        success { // runs on success only (other options: failure, always)
-            archiveArtifacts artifacts: 'build/**' // keeps any artifacts within folder
+    post { // run this after all the stages
+        success { // run this if success only (or: always)
+            archiveArtifacts artifacts: 'build/**' // archive whatever is inside build dir
         }
     }
 }
